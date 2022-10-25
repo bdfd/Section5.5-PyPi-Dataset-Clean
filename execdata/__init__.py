@@ -7,4 +7,4 @@ Description: In User Settings Edit
 FilePath: \6.0-PyPI_Missing_Value_Table\src\missing_value_table\__init__.py
 '''
 
-from templateproj.templateproj import add_one
+from execdata.templateproj import add_one
