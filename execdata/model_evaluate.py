@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-10-26 12:12:25
+LastEditTime : 2022-10-26 12:21:58
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\model_evaluate.py
@@ -42,5 +42,5 @@ def model_evaluate(X_train, X_test, y_train, y_test):
     print(f'model list is {models}')
     for n in range(5):
         print(f'for model {models[n]} with the train_score:{train_scores[n]} and test_score:{test_scores[n]} ')
-    
-    return train_score, test_score, models
+
+    return train_scores, test_scores, models
