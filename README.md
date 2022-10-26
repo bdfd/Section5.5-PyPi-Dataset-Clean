@@ -13,11 +13,14 @@ Package function description
 
 ## Installation
 
-`pip install package-name`
+`pip install execdata`
 
 ## How to use it?
 
-Function of the package
+import execdata as data
+data.encode(df),
+data.split(df),
+data.model_evaluate(X_train, X_test, y_train, y_test)
 
 ## License
 
