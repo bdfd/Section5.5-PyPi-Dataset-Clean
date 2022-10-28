@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-10-28 16:11:02
+LastEditTime : 2022-10-28 16:21:17
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\preprocess.py
@@ -23,9 +23,9 @@ def encode(df):
     return df
 
 def sep(df_train, df_test, target_variable):
-    X_train = df_train.drop[target_variable]
+    X_train = df_train.drop(target_variable, axis=1)
     y_train = df_train[target_variable]
-    X_test = df_test.drop[target_variable]
+    X_test = df_test.drop(target_variable, axis=1)
     y_test = df_test[target_variable]
     return X_train, y_train, X_test, y_test
 
