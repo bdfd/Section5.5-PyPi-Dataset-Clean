@@ -2,13 +2,14 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-10-26 12:21:58
+LastEditTime : 2022-11-07 16:55:00
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\model_evaluate.py
 Copyright (c) 2022 by BDFD, All Rights Reserved. 
 '''
 import sklearn
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -44,3 +45,10 @@ def model_evaluate(X_train, X_test, y_train, y_test):
         print(f'for model {models[n]} with the train_score:{train_scores[n]} and test_score:{test_scores[n]} ')
 
     return train_scores, test_scores, models
+
+def algo_accuracy(y_test, y_predict):
+    confusion = confusion_matrix(y_test, y_predict)
+    accuracy = accuracy_score(y_test, y_predict)
+    precision = precision_score(y_test, y_predict)
+    recall = recall_score(y_test, y_predict)
+    return confusion, accuracy, precision, recall
