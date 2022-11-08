@@ -2,7 +2,7 @@
 Date         : 2022-10-25 15:44:41
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-11-08 10:54:07
+LastEditTime : 2022-11-08 15:24:28
 LastEditors  : BDFD
 Description  : 
 FilePath     : \setup.py
@@ -15,7 +15,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-VERSION = '1.1.4'
+VERSION = '1.1.6'
 DESCRIPTION = 'Write Your Package Description Here'
 PACKAGE_NAME = 'execdata'
 

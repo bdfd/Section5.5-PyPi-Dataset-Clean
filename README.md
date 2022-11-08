@@ -17,10 +17,13 @@ Package function description
 
 ## How to use it?
 
-import execdata as data
-data.encode(df),
-data.split(df),
-data.model_evaluate(X_train, X_test, y_train, y_test)
+import execdata as exe
+exe.encode(df),
+exe.split(df),
+
+exe.model_evaluate(X_train, X_test, y_train, y_test)
+exe.algo_accuracy(y_test, y_predict)
+result_comparision(y_test, y_predict)
 
 ## License
 
