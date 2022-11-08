@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-11-07 16:55:00
+LastEditTime : 2022-11-08 10:52:53
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\model_evaluate.py
@@ -47,8 +47,22 @@ def model_evaluate(X_train, X_test, y_train, y_test):
     return train_scores, test_scores, models
 
 def algo_accuracy(y_test, y_predict):
+    algorithms_accuracy_result = {}
+
     confusion = confusion_matrix(y_test, y_predict)
+    algorithms_accuracy_result['confusion_matrix'] = confusion
+    print(f'confusion matrix is {confusion}.',end='\n')
+
     accuracy = accuracy_score(y_test, y_predict)
+    algorithms_accuracy_result['accuracy_score'] = accuracy
+    print(f'accuracy score is {accuracy}.',end='\n')
+
     precision = precision_score(y_test, y_predict)
+    algorithms_accuracy_result['precision_score'] = precision
+    print(f'precision score is {precision}.',end='\n')
+    
     recall = recall_score(y_test, y_predict)
-    return confusion, accuracy, precision, recall
+    algorithms_accuracy_result['recall_score'] = recall
+    print(f'recall score is {recall}.',end='\n')
+    
+    return algorithms_accuracy_result
