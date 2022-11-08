@@ -2,7 +2,7 @@
 Date         : 2022-10-26 11:24:35
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-11-08 10:53:37
+LastEditTime : 2022-11-08 15:57:19
 LastEditors  : BDFD
 Description  : 
 FilePath     : \test.py
@@ -12,42 +12,27 @@ import execdata as exe
 import os
 import numpy as np
 import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+# Read the dataset
 
-# # Read the dataset
-# data_dir = 'https://raw.githubusercontent.com/bdfd/Project_02-House_Model_Price_Prediction/main/display%20demo/processed%20dataset.csv'
-# df = pd.read_csv(data_dir, encoding = 'utf-8')
-# print(df.shape)
-
-# a = 'income_category'
-# # print(a.head(3))
-# X, y = data.strat_split(df,a)
-# print(X.shape)
-# print(X.head(3))
-data_dir = 'https://raw.githubusercontent.com/bdfd/Project_04OP-Wine_Category_Prediction/main/display%20demo/'
-dataset_1 = 'test_x.csv'
-dataset_2 = 'test_y.csv'
-dataset_3 = 'train_x.csv'
-dataset_4 = 'train_y.csv'
 # Upload dataset into data frame
-X_test = pd.read_csv(os.path.join(data_dir,dataset_1), encoding = 'utf-8')
-y_test = pd.read_csv(os.path.join(data_dir,dataset_2), encoding = 'utf-8')
-X_train = pd.read_csv(os.path.join(data_dir,dataset_3), encoding = 'utf-8')
-y_train = pd.read_csv(os.path.join(data_dir,dataset_4), encoding = 'utf-8')
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-scaled_X_train = scaler.fit_transform(X_train)
-scaled_X_test = scaler.fit_transform(X_test)
-# print(scaled_X_test)
-# print(scaled_X_train)
-from sklearn.svm import SVC
-svc_model = SVC()
-y_train.drop(columns = y_train.columns[0], axis = 1, inplace= True)
-y_test.drop(columns = y_test.columns[0], axis = 1, inplace= True)
-y_train= np.array(y_train)
-y_test= np.array(y_test)
-# print(y_train)
-svc_model.fit(scaled_X_train, y_train.ravel())
-svc_model_predict = svc_model.predict(scaled_X_test)
-y_test = y_test.ravel()
-result = exe.algo_accuracy(y_test, svc_model_predict)
-print(result)
+df = pd.read_csv("https://raw.githubusercontent.com/bdfd/Portfolio_Project_13OP-Cloth__Size_Prediction/main/dataset/cloth_size.csv")
+print(df.head(3))
+# drop Null small amount in the datasets
+df = df.dropna(axis=0)
+print(df.shape)
+# we also drop the XXL record since we dont have a representative amount of this data
+df = df[df['size'] != 'XXL']
+print(df.shape)
+# X = df.iloc[:,1:-1] # X value contains all the variables except labels -only if the prediction column is last one
+# y = df.iloc[:,-1] # these are the labels
+df_train, df_test = exe.split(df)
+# rewrite the target variable
+target_variable = 'size'
+X_train, y_train, X_test, y_test = exe.sep(df_train, df_test, target_variable)
+# we create the test train split first
+dt_model = DecisionTreeClassifier(max_depth=8)
+dt_model.fit(X_train, y_train)
+dt_model.score(X_test, y_test)
+y_predict = dt_model.predict(X_test)
+exe.result_comparision(y_test, y_predict)

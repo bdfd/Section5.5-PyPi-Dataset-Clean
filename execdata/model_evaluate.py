@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-11-08 15:22:07
+LastEditTime : 2022-11-08 15:45:18
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\model_evaluate.py
@@ -74,10 +74,11 @@ def result_comparision(y_test, y_predict):
     y_predict = y_predict.tolist()
     results = pd.DataFrame(data = {"Predictions":y_predict, "Actuals": y_test})
     results["Matching"] = results.apply(lambda x: "Correct" if x["Predictions"] == x["Actuals"] else "Wrong", axis=1)
-    correct_wrong_data = results.groupby(["Actuals", "Matching"])["Predictions"].count().reset_index()
-    correct_wrong_data["Labels"] = correct_wrong_data["Actuals"] + " - " + correct_wrong_data["Matching"]
-    correct_wrong_data["Colors"] = correct_wrong_data["Matching"].map(lambda x: "b" if x == "Correct" else "r")
-    print(correct_wrong_data)
+    df = results.groupby(["Actuals", "Matching"])["Predictions"].count().reset_index()
+    df["Labels"] = df["Actuals"] + " - " + df["Matching"]
+    df["Colors"] = df["Matching"].map(lambda x: "b" if x == "Correct" else "r")
+    df_result = pd.DataFrame(data=df)
+    print(df_result)
     plt.figure(figsize=(18, 6))
-    fig = plt.bar(x=correct_wrong_data["Labels"], height=correct_wrong_data["Predictions"], color=correct_wrong_data["Colors"])
+    fig = plt.bar(x=df["Labels"], height=df["Predictions"], color=df["Colors"])
     plt.show()
