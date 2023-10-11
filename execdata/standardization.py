@@ -2,10 +2,10 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2022-10-28 16:21:17
+LastEditTime : 2023-10-11 16:11:24
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\preprocess.py
+FilePath     : \execdata\standardization.py
 Copyright (c) 2022 by BDFD, All Rights Reserved. 
 '''
 
@@ -29,9 +29,10 @@ def sep(df_train, df_test, target_variable):
     y_test = df_test[target_variable]
     return X_train, y_train, X_test, y_test
 
-def split(df):
-    df_train, df_test = train_test_split(df, test_size=0.2, random_state=66)
-    return df_train, df_test
+def split(df, target_variable, test_size=0.2, random_state=66):
+    df_train, df_test = train_test_split(df, test_size=test_size, random_state=random_state)
+    X_train, y_train, X_test, y_test = sep(df_train, df_test, target_variable)
+    return X_train, y_train, X_test, y_test
 
 def strat_split(df, column):
     split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=66)
