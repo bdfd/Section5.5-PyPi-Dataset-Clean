@@ -1,6 +1,6 @@
 
 
-def column_indentify(df, column_lists):
+def column_identify(df, column_lists):
     column_indentify = {}
     for col in column_lists:
         num = len(df[col].unique().tolist())
