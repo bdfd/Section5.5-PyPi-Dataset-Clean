@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-12 10:32:46
+LastEditTime : 2023-10-16 14:38:17
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\standardization.py
@@ -24,25 +24,29 @@ def encode(df):
     return df
 
 
+def sep(df, target_variable):
+    X = df.drop(target_variable, axis=1)
+    y = df[target_variable]
+    return X, y
+
+
 def split(df, test_size=0.2, random_state=66):
     df_train, df_test = train_test_split(
         df, test_size=test_size, random_state=random_state)
     return df_train, df_test
 
 
-def sep(df_train, df_test, target_variable):
-    X_train = df_train.drop(target_variable, axis=1)
-    y_train = df_train[target_variable]
-    X_test = df_test.drop(target_variable, axis=1)
-    y_test = df_test[target_variable]
+def sep_split(df, target_variable, test_size=0.2, random_state=66):
+    X, y = sep(df, target_variable)
+    X_train, y_train, X_test, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state)
     return X_train, y_train, X_test, y_test
 
-
-def train_split(df, target_variable, test_size=0.2, random_state=66):
-    df_train, df_test = train_test_split(
-        df, test_size=test_size, random_state=random_state)
-    X_train, y_train, X_test, y_test = sep(df_train, df_test, target_variable)
-    return X_train, y_train, X_test, y_test
+# def split_sep(df, target_variable, test_size=0.2, random_state=66):
+#     df_train, df_test = train_test_split(
+#         df, test_size=test_size, random_state=random_state)
+#     X_train, y_train, X_test, y_test = sep(df_train, df_test, target_variable)
+#     return X_train, y_train, X_test, y_test
 
 
 def strat_split(df, column):

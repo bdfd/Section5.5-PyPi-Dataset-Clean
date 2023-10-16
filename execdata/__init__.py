@@ -13,5 +13,5 @@ from execdata.templateproj import add_one, add_two
 from execdata.data_conversion import convint, convfloat
 from execdata.data_mining import filtered_value_count, filtered_value_list, column_identify
 from execdata.data_preprocess import drop_columns
-from execdata.standardization import encode, sep, split, train_split, strat_split
+from execdata.standardization import encode, sep, split, sep_split, strat_split
 from execdata.model_evaluate import model_evaluate, algo_accuracy, result_comparision
