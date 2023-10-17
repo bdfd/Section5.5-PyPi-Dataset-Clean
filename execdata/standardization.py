@@ -38,9 +38,9 @@ def split(df, test_size=0.2, random_state=66):
 
 def sep_split(df, target_variable, test_size=0.2, random_state=66):
     X, y = sep(df, target_variable)
-    X_train, y_train, X_test, y_test = train_test_split(
+    X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, random_state=random_state)
-    return X_train, y_train, X_test, y_test
+    return X_train, X_test, y_train, y_test
 
 # def split_sep(df, target_variable, test_size=0.2, random_state=66):
 #     df_train, df_test = train_test_split(
