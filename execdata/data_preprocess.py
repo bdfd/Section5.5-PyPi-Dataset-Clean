@@ -2,7 +2,7 @@
 Date         : 2023-10-11 13:39:36
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-12 10:30:41
+LastEditTime : 2023-11-01 12:36:03
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\data_preprocess.py
@@ -11,6 +11,7 @@ Copyright (c) 2023 by BDFD, All Rights Reserved.
 
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 
 def drop_columns(df, del_columns_list):
@@ -23,3 +24,55 @@ def drop_columns(df, del_columns_list):
     for column in del_columns_list:
         df = df.drop(column, axis=1)
     return df
+
+
+def fit_label_encode(df, categorical_features):
+    label_encoders = []
+    if isinstance(categorical_features, list):
+        categorical_features = categorical_features
+        # print(type(categorical_features))
+    else:
+        categorical_features = list(categorical_features)
+        # print(type(categorical_features))
+    for feature in categorical_features:
+        Le = LabelEncoder()
+        df[feature] = Le.fit(df[feature])
+        # print(type(Le))
+        label_encoders.append(Le)
+        # print('The Feature', feature, ',with value', Le.classes_)
+    return label_encoders
+
+
+def transform_label_encode(df, categorical_features, label_encoders):
+    # Transform the new data using the fitted LabelEncoders
+    if isinstance(categorical_features, list):
+        categorical_features = categorical_features
+        print(type(categorical_features))
+    else:
+        categorical_features = list(categorical_features)
+        print(type(categorical_features))
+    transformed_new_data = []
+    for i in range(len(categorical_features)):
+        print(i)
+        le = label_encoders[i]
+        print(label_encoders[i])
+        # print(label_encoders[i])
+        # print(categorical_features[i])
+        print(categorical_features[i])
+        # df[categorical_features[i]] = le.transform(df[categorical_features[i]])
+        # transformed_col = le.transform(df[categorical_features[i]])
+        # transformed_new_data.append(transformed_col)
+    # df_transformed = pd.DataFrame(transformed_new_data).transpose()
+    # df_transformed.columns = categorical_features
+    return df
+
+    # Convert the transformed data back to the original form
+    inverse_transformed_data = []
+    for i in range(len(df[0])):
+        le = label_encoders[i]
+        inverse_transformed_col = le.inverse_transform(transformed_new_data[i])
+        inverse_transformed_data.append(inverse_transformed_col)
+    # Display the inverse transformed data
+    df_inverse_transformed = pd.DataFrame(inverse_transformed_data).transpose()
+    df_inverse_transformed.columns = df_header
+    return df_transformed, df_inverse_transformed

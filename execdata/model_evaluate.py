@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-18 15:43:10
+LastEditTime : 2023-10-31 16:56:19
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\model_evaluate.py
@@ -86,7 +86,6 @@ def model_evaluate(X_train, X_test, y_train, y_test):
     for n in range(5):
         print(
             f'for model {models[n]} with the train_score:{train_scores[n]} and test_score:{test_scores[n]} ')
-
     return train_scores, test_scores, models
 
 
@@ -108,7 +107,6 @@ def algo_accuracy(y_test, y_predict):
     recall = recall_score(y_test, y_predict)
     algorithms_accuracy_result['recall_score'] = recall
     print(f'recall score is {recall}.', end='\n')
-
     return algorithms_accuracy_result
 
 

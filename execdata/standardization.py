@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-16 14:38:17
+LastEditTime : 2023-11-01 11:38:07
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\standardization.py
@@ -16,12 +16,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedShuffleSplit
 
 
-def encode(df):
-    lable = LabelEncoder()
-    for column in df:
-        if df[column].dtypes == 'object':
-            df[column] = lable.fit_transform(df[column])
-    return df
+# def encode(df):
+#     le = LabelEncoder()
+#     for column in df:
+#         if df[column].dtypes == 'object':
+#             df[column] = le.fit_transform(df[column])
+#     return df
 
 
 def sep(df, target_variable):

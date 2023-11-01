@@ -2,7 +2,7 @@
 Date         : 2022-10-26 11:24:35
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-30 14:30:42
+LastEditTime : 2023-10-31 16:53:35
 LastEditors  : BDFD
 Description  : 
 FilePath     : \test.py
@@ -11,19 +11,23 @@ Copyright (c) 2022 by BDFD, All Rights Reserved.
 import execdata as exe
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import make_column_transformer
-from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import LabelEncoder
 import os
 
-df = pd.read_csv(
-    'https://raw.githubusercontent.com/bdfd/Section6.Project02-Telco_Customer_Churning_Prediction/main/1.0%20dataset/Telco-Customer-Churn.csv', encoding='utf-8')
-# df2 = pd.read_csv(os.path.join(data_path,dataset_url_2), encoding = 'utf-8')
+# Example original data
+data = [['red', 'circle'],
+        ['blue', 'square'],
+        ['green', 'triangle']]
 
-target_feature = 'Churn'
-# print(df[target_feature].value_counts())
-# print(' ')
-majornity_target_value = 'No'
-target_value_percentage = exe.majority_target_variable(
-    df, target_feature, majornity_target_value)
-print(target_value_percentage)
+# Example new data
+new_data = [['green', 'circle']]
+# Assuming data is a list of lists where each sub-list represents a row of the dataset
+
+label_encoder = exe.fit_label_encode(data)
+df_header = ['color', 'geometry']
+test_sample, reverse_sample = exe.transform_label_encode(
+    new_data, df_header, label_encoder)
+print(test_sample)
+print(type(test_sample))
+print(reverse_sample)
+print(type(reverse_sample))
