@@ -2,7 +2,7 @@
 Date         : 2022-10-25 15:44:41
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-02 15:55:01
+LastEditTime : 2023-11-02 17:09:41
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\__init__.py
@@ -16,4 +16,4 @@ from execdata.data_preprocess import drop_columns, fit_label_encode, transform_l
 from execdata.standardization import sep, split, sep_split, strat_split
 # from execdata.standardization import encode
 from execdata.model_evaluate import sample_comparsion, model_evaluate, algo_accuracy, result_comparision
-from execdata.analysis_graph.data_analysis_graph import *
+from execdata.analysis_graph import data_analysis_graph
