@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def missing_malue_analysis(df):
+def missing_value_analysis(df):
     # Total missing values
     missing_value = df.isnull().sum()
 
