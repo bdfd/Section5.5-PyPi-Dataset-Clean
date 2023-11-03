@@ -2,10 +2,10 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-31 16:56:19
+LastEditTime : 2023-11-03 10:44:31
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\model_evaluate.py
+FilePath     : \execdata\data_modeling\model_evaluate.py
 Copyright (c) 2022 by BDFD, All Rights Reserved. 
 '''
 import pandas as pd
@@ -56,6 +56,7 @@ def sample_comparsion(X, y, column_transformation, model, start=0.1, step=0.01, 
     random_state = result % random_state
     print('')
     print(test_size_number, test_size, random_state)
+
     return test_size, random_state
 
 

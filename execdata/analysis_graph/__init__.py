@@ -9,4 +9,4 @@ FilePath     : \execdata\analysis_graph\__init__.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 
-from .data_analysis_graph import top_correlation
+from ._data_analysis_graph import top_correlation
