@@ -2,10 +2,10 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-02 15:42:43
+LastEditTime : 2023-11-03 13:13:56
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\analysisgraph\data_analysis_graph.py
+FilePath     : \execdata\analysis_graph\_data_analysis_graph.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 from tabulate import tabulate
@@ -28,6 +28,7 @@ def top_correlation(df, target_feature, top_feature_number=10, correlation_bound
 
     # Extract column name
     top_feature_column_names = [item[0] for item in top_features]
+    top_feature_column_names = top_feature_column_names + [target_feature]
     # print(column_names)
 
     # Display the top 12 feature correlations as a table

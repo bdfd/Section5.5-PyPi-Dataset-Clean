@@ -2,10 +2,10 @@
 Date         : 2023-10-11 13:39:36
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-01 14:03:31
+LastEditTime : 2023-11-03 14:00:55
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\data_preprocess.py
+FilePath     : \execdata\data_preprocessing\_data_preprocess.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 
@@ -23,6 +23,21 @@ def drop_columns(df, del_columns_list):
         return print("input is not list or str! please redo the function with correct parameter.")
     for column in del_columns_list:
         df = df.drop(column, axis=1)
+    return df
+
+
+def column_not_drop(df, save_columns_list):
+    if isinstance(save_columns_list, str):
+        save_columns_list = [save_columns_list]
+    elif isinstance(save_columns_list, list):
+        save_columns_list = save_columns_list
+    else:
+        return print("input is not list or str! please redo the function with correct parameter.")
+    column_to_drop_list = [
+        col for col in df.columns if col not in save_columns_list]
+    column_to_drop_list = sort_categorical_feature(column_to_drop_list)
+    print("The dropped column list are:", column_to_drop_list)
+    df = drop_columns(df, column_to_drop_list)
     return df
 
 
