@@ -2,7 +2,7 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-03 13:13:56
+LastEditTime : 2023-11-03 14:26:25
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\analysis_graph\_data_analysis_graph.py
@@ -33,10 +33,12 @@ def top_correlation(df, target_feature, top_feature_number=10, correlation_bound
 
     # Display the top 12 feature correlations as a table
     headers = ["Feature", "Abs Cor"]
-    table = tabulate(top_features, headers=headers, tablefmt="github")
+    table = tabulate(correlations, headers=headers, tablefmt="github")
 
     print(
-        f"Top {top_feature_number} Feature Correlations (sorted by absolute values):")
+        f"Feature Correlations (sorted by absolute values):")
+    print(
+        f"Top 10 feature and target feature list:", top_feature_column_names)
     print(table)
 
     return top_feature_column_names
