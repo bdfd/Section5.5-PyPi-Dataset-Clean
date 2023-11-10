@@ -8,6 +8,7 @@ Description  :
 FilePath     : \execdata\data_preprocessing\__init__.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
+from ._data_mining import high_miss_rate_column
 from ._data_mining import column_identify
 from ._data_mining import filtered_value_count
 from ._data_mining import filtered_value_list

@@ -2,14 +2,21 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-10-30 14:34:14
+LastEditTime : 2023-11-10 12:20:55
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\data_mining.py
+FilePath     : \execdata\data_preprocessing\_data_mining.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 import numpy as np
 import pandas as pd
+
+
+def high_miss_rate_column(df, miss_rate=5):
+    # combine use with function[exe.analysis_graph.missing_value_analysis]
+    filtered_df = df[df['Miss_Rate'] > 5]
+    delete_column_name_list = filtered_df['index'].tolist()
+    return delete_column_name_list
 
 
 def column_identify(df, column_lists):
