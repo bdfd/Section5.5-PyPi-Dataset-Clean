@@ -2,7 +2,7 @@
 Date         : 2023-11-09 16:43:01
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-10 12:16:20
+LastEditTime : 2023-11-10 12:42:08
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\analysis_graph\_data_mining_graph.py
@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def missing_value_analysis(df):
+def missing_value_analysis(df, miss_rate=5):
     # Total missing values
     missing_value = df.isnull().sum()
 
@@ -34,6 +34,7 @@ def missing_value_analysis(df):
     missing_value_analysis_table = mis_val_table_rename_columns[
         mis_val_table_rename_columns.iloc[:, 1] != 0].reset_index().sort_values(
         'Miss_Rate', ascending=False).round(2)
+    print(missing_value_analysis_table)
 
     # Print some summary information
     print("Your selected dataframe has " + str(df.shape[1]) + " columns.\n"
@@ -58,4 +59,8 @@ def missing_value_analysis(df):
 
     plt.show()
     # Return the dataframe with missing information
-    return missing_value_analysis_table
+
+    filtered_df = missing_value_analysis_table[missing_value_analysis_table['Miss_Rate'] > miss_rate]
+    delete_column_name_list = filtered_df['index'].tolist()
+    # print(delete_column_name_list)
+    return delete_column_name_list

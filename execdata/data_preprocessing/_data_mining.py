@@ -2,7 +2,7 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-10 12:20:55
+LastEditTime : 2023-11-10 12:36:56
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\data_preprocessing\_data_mining.py
@@ -12,10 +12,10 @@ import numpy as np
 import pandas as pd
 
 
-def high_miss_rate_column(df, miss_rate=5):
+def high_miss_rate_column(df, missing_rate_column, corresponding_name_column, miss_rate=5):
     # combine use with function[exe.analysis_graph.missing_value_analysis]
-    filtered_df = df[df['Miss_Rate'] > 5]
-    delete_column_name_list = filtered_df['index'].tolist()
+    filtered_df = df[df[missing_rate_column] > miss_rate]
+    delete_column_name_list = filtered_df[corresponding_name_column].tolist()
     return delete_column_name_list
 
 
