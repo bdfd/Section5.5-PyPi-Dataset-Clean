@@ -25,3 +25,5 @@ from ._standardization import sep
 from ._standardization import split
 from ._standardization import sep_split
 from ._standardization import strat_split
+
+from ._feature_selection import add
