@@ -2,14 +2,28 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-03 14:26:25
+LastEditTime : 2023-11-13 12:50:34
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\analysis_graph\_data_analysis_graph.py
+FilePath     : \execdata\graph\_data_analysis_graph.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 from tabulate import tabulate
+import matplotlib.pyplot as plt
 
+def discrete_feature_graph(df, target_feature, numerical_features):
+    ## Numerical variables are usually of 2 type
+    ## 1. Continous variable and Discrete Variables
+    discrete_feature_list=[feature for feature in numerical_features if len(df[feature].unique())<25]
+    print("Discrete Variables Count: {}".format(len(discrete_feature_list)))
+    for feature in discrete_feature_list:
+        data=df.copy()
+        data.groupby(feature)[target_feature].median().plot.bar()
+        plt.xlabel(feature)
+        plt.ylabel(target_feature)
+        plt.title(feature)
+        plt.show()
+    return discrete_feature_list
 
 def top_correlation(df, target_feature, top_feature_number=10, correlation_boundary=0.05):
     # Calculate the correlation with the target variable and sort by values
