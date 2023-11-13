@@ -2,7 +2,7 @@
 Date         : 2023-11-02 17:34:28
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 11:19:15
+LastEditTime : 2023-11-13 11:34:28
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\eda\__init__.py
@@ -23,9 +23,9 @@ from ._data_preprocess import strat_split
 from ._feature_selection import drop_columns
 from ._feature_selection import column_not_drop
 from ._feature_selection import sort_categorical_feature
+# from ._feature_selection import add
 
 from ._standardization import fit_label_encode
 from ._standardization import transform_label_encode
 from ._standardization import inverse_label_encode
 
-from ._feature_selection import add
