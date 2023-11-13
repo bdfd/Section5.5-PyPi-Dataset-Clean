@@ -2,10 +2,10 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-10 12:36:56
+LastEditTime : 2023-11-13 15:45:27
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\data_preprocessing\_data_mining.py
+FilePath     : \execdata\eda\_data_mining.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 import numpy as np
@@ -18,6 +18,24 @@ def high_miss_rate_column(df, missing_rate_column, corresponding_name_column, mi
     delete_column_name_list = filtered_df[corresponding_name_column].tolist()
     return delete_column_name_list
 
+def numerical_features_list(df):
+    # list for numerical variables
+    numerical_features_list = [feature for feature in df.columns if df[feature].dtypes != 'O']
+    print('Number of Numerical Variables:', len(numerical_features_list))
+
+    #visualize the numerical variables
+    df[numerical_features_list].head()
+    return numerical_features_list
+
+def categorical_features_list(df):
+    # list for categorical variables
+    categorical_features_list = [feature for feature in df.columns if df[feature].dtypes == 'O']
+    print('Number of Categorical Variables:', len(categorical_features_list))
+
+    #visualize the categorical variables
+    df[categorical_features_list].head()
+    return categorical_features_list
+
 
 def column_identify(df, column_lists):
     column_indentify = {}
@@ -27,13 +45,16 @@ def column_identify(df, column_lists):
     return column_indentify
 
 
-def filtered_value_count(df, column, limit_number):
+def filtered_value_count(df, column, limit_number=10):
+    '''
+    用于过滤当前column每个种类少于10个分类
+    '''
     value_counts_series = df[column].value_counts()
     filtered_value_counts = value_counts_series[value_counts_series < limit_number]
     return filtered_value_counts
 
 
-def filtered_value_list(df, column, limit_number):
+def filtered_value_list(df, column, limit_number=10):
     value_counts_series = df[column].value_counts()
     filtered_value_counts = value_counts_series[value_counts_series < limit_number]
     filtered_value_counts_list = filtered_value_counts.index.values.tolist()
