@@ -2,7 +2,7 @@
 Date         : 2022-10-25 15:44:41
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 11:34:38
+LastEditTime : 2023-11-13 16:09:56
 LastEditors  : BDFD
 Description  : 
 FilePath     : \setup.py
@@ -15,7 +15,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-VERSION = '4.1.1'
+VERSION = '4.2.0'
 DESCRIPTION = 'Preprocessing dataset'
 PACKAGE_NAME = 'execdata'
 
