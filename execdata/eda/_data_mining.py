@@ -2,7 +2,7 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 15:45:27
+LastEditTime : 2023-11-13 16:22:19
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\eda\_data_mining.py
@@ -24,7 +24,7 @@ def numerical_features_list(df):
     print('Number of Numerical Variables:', len(numerical_features_list))
 
     #visualize the numerical variables
-    df[numerical_features_list].head()
+    print(df[numerical_features_list].head())
     return numerical_features_list
 
 def categorical_features_list(df):
@@ -33,7 +33,7 @@ def categorical_features_list(df):
     print('Number of Categorical Variables:', len(categorical_features_list))
 
     #visualize the categorical variables
-    df[categorical_features_list].head()
+    print(df[categorical_features_list].head())
     return categorical_features_list
 
 
