@@ -1,27 +1,19 @@
 '''
-Date         : 2022-10-25 17:21:52
+Date         : 2023-10-11 13:39:36
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-01 11:38:07
+LastEditTime : 2023-11-03 14:00:55
 LastEditors  : BDFD
 Description  : 
-FilePath     : \execdata\standardization.py
-Copyright (c) 2022 by BDFD, All Rights Reserved. 
+FilePath     : \execdata\data_preprocessing\_data_preprocess.py
+Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 
-
 import numpy as np
+import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedShuffleSplit
-
-
-# def encode(df):
-#     le = LabelEncoder()
-#     for column in df:
-#         if df[column].dtypes == 'object':
-#             df[column] = le.fit_transform(df[column])
-#     return df
 
 
 def sep(df, target_variable):
