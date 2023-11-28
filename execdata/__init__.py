@@ -2,15 +2,14 @@
 Date         : 2022-10-25 15:44:41
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 15:43:08
+LastEditTime : 2023-11-28 14:04:05
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\__init__.py
 Copyright (c) 2022 by BDFD, All Rights Reserved. 
 '''
 
-from execdata import templateproj
-from .eda.data_conversion import *
+from .format import _data_conversion, _format_data
 from .eda import _data_mining, _data_preprocess, _standardization, _feature_selection
 # from execdata.standardization import encode
 from .model import _model_evaluate
