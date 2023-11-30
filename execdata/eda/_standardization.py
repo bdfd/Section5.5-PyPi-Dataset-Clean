@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 11:13:38
+LastEditTime : 2023-11-30 11:59:17
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\eda\_standardization.py
@@ -13,8 +13,11 @@ Copyright (c) 2022 by BDFD, All Rights Reserved.
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedShuffleSplit
+
+# When the label is ordinal we can use LabelEncoder
 
 
 def fit_label_encode(df, categorical_features):
@@ -59,4 +62,31 @@ def inverse_label_encode(df, categorical_features, label_encoders):
     # Display the inverse transformed data
     df_inverse_transformed = pd.DataFrame(inverse_transformed_data).transpose()
     df_inverse_transformed.columns = categorical_features
+    return df_inverse_transformed
+
+
+def fit_one_hot_encode(df, categorical_features):
+    one_hot_encoders = OneHotEncoder(sparse=False)
+    one_hot_encoders.fit(df[categorical_features])
+    return one_hot_encoders
+
+
+def transform_one_hot_encode(df, categorical_features, one_hot_encoders):
+    # Transform the new data using the fitted OneHotEncoders
+    ohe = one_hot_encoders
+    encoded_columns = ohe.transform(df[categorical_features])
+    df_transformed = pd.DataFrame(
+        encoded_columns,
+        columns=ohe.get_feature_names_out(input_features=categorical_features)
+    )
+    return df_transformed
+
+
+def inverse_one_hot_encode(df_transformed, categorical_features, one_hot_encoders):
+    # # Inverse transform to revert back to the original form
+    ohe = one_hot_encoders
+    reverted_columns = ohe.inverse_transform(df_transformed)
+    df_inverse_transformed = pd.DataFrame(
+        reverted_columns, columns=categorical_features)
+
     return df_inverse_transformed

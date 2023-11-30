@@ -2,7 +2,7 @@
 Date         : 2023-11-02 17:34:28
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 15:45:22
+LastEditTime : 2023-11-30 12:01:02
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\eda\__init__.py
@@ -30,4 +30,7 @@ from ._feature_selection import sort_categorical_feature
 from ._standardization import fit_label_encode
 from ._standardization import transform_label_encode
 from ._standardization import inverse_label_encode
+from ._standardization import fit_one_hot_encode
+from ._standardization import transform_one_hot_encode
+from ._standardization import inverse_one_hot_encode
 
