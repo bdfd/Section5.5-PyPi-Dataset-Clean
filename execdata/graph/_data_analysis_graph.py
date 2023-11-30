@@ -2,7 +2,7 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 15:46:06
+LastEditTime : 2023-11-30 15:48:20
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\graph\_data_analysis_graph.py
@@ -11,7 +11,12 @@ Copyright (c) 2023 by BDFD, All Rights Reserved.
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
+
 def top_correlation(df, target_feature, top_feature_number=10, correlation_boundary=0.05):
+    # Get Correlation of "Churn" with other variables:
+    plt.figure(figsize=(15, 8))
+    df.corr()[target_feature].sort_values(ascending=False).plot(kind='bar')
+
     # Calculate the correlation with the target variable and sort by values
     correlations = []
     for column in df.columns:
