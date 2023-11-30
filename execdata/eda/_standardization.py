@@ -2,7 +2,7 @@
 Date         : 2022-10-25 17:21:52
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-30 11:59:17
+LastEditTime : 2023-11-30 12:46:34
 LastEditors  : BDFD
 Description  : 
 FilePath     : \execdata\eda\_standardization.py
@@ -41,7 +41,7 @@ def transform_label_encode(df, categorical_features, label_encoders):
         # print(i, label_encoders[i].classes_)
         # print(i, categorical_features[i])
         transformed_col = le.transform(df[categorical_features[i]])
-        df[feature] = transformed_col
+        # df[feature] = transformed_col
         # print(transformed_col)
         transformed_new_data.append(transformed_col)
     df_transformed = pd.DataFrame(transformed_new_data).transpose()
