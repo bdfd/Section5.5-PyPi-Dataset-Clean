@@ -15,8 +15,7 @@ jobs:
    id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
   steps:
    # retrieve your distributions here
-
-   - name: Publish package distributions to PyPI
+   - name: Publish a Python distribution to PyPI
      uses: pypa/gh-action-pypi-publish@release/v1
      with:
-      password: { { secrets.PYPI_API_TOKEN } }
+      password: ${{ secrets.PYPI_API_TOKEN }}
