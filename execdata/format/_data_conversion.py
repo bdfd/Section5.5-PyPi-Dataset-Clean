@@ -2,7 +2,7 @@
 Date         : 2023-01-17 10:33:06
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-03-14 14:27:06
+LastEditTime : 2024-03-14 15:50:03
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\format\_data_conversion.py
@@ -20,5 +20,10 @@ def convfloat(str):
 
 def addten(x):
     result = x + 10
+    result = int(result)
+    return result
+
+def addtwety(x):
+    result = x + 20
     result = int(result)
     return result
