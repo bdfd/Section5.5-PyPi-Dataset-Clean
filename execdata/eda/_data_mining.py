@@ -2,7 +2,7 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-04 16:28:24
+LastEditTime : 2024-04-04 16:49:45
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\eda\_data_mining.py
@@ -42,10 +42,10 @@ def categorical_features_list(df):
 
 
 def column_identify(df, column_lists):
-    column_indentify = {}
+    column_indentify_dict = {}
     for col in column_lists:
-        num = len(df[col].unique().tolist())
-        column_indentify[col] = num
+        column_indentify_dict[col] = df[col].value_counts().shape[0]
+    column_indentify = pd.DataFrame(column_indentify_dict,index=["Unique Count"]).transpose()
     return column_indentify
 
 
