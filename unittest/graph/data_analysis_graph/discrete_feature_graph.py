@@ -2,8 +2,8 @@
 Date         : 2023-11-13 12:33:16
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-13 15:45:56
-LastEditors  : BDFD
+LastEditTime : 2024-04-04 17:30:38
+LastEditors  : <BDFD>
 Description  : 
 FilePath     : \unittest\graph\data_analysis_graph\discrete_feature_graph.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
@@ -17,7 +17,7 @@ target_feature = 'SalePrice'
 print(
     f'the dataset_1 size is {df.shape} and target feature is {target_feature}')
 # list of numerical variables
-numerical_features_list = exe.eda.numer
+numerical_features_list = exe.eda.numerical_features_list(df)
 
 # visualise the numerical variables
 print(df[numerical_features_list].head())

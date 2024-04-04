@@ -1,3 +1,13 @@
+'''
+Date         : 2024-04-04 16:14:14
+Author       : BDFD,bdfd2005@gmail.com
+Github       : https://github.com/bdfd
+LastEditTime : 2024-04-04 17:45:39
+LastEditors  : <BDFD>
+Description  : 
+FilePath     : \unittest\eda\data_mining\feature_list.py
+Copyright (c) 2024 by BDFD, All Rights Reserved. 
+'''
 import pandas as pd
 import numpy as np
 import execdata as exe
