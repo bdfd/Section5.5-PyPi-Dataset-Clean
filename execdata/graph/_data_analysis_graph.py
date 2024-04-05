@@ -2,7 +2,7 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-05 12:16:46
+LastEditTime : 2024-04-05 12:27:44
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\graph\_data_analysis_graph.py
@@ -101,8 +101,6 @@ def box_plot_graph(df, continuous_numerical_feature_list):
                                  "#6aac90", "#5833ff", "#da8829"]
                 fig.patch.set_facecolor(background_color)
                 ax.set_facecolor(background_color)
-                ax.text(-0.05, 81, continuous_numerical_feature_list[num],
-                        fontsize=14, fontweight='bold', fontfamily='serif', color="#000000")
                 ax.grid(color='#000000', linestyle=':',
                         axis='y', zorder=0,  dashes=(1, 5))
                 sns.boxenplot(ax=ax, y=df[continuous_numerical_feature_list[num]], palette=[
