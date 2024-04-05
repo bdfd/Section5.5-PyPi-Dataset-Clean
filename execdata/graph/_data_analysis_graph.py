@@ -2,7 +2,7 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-05 11:50:35
+LastEditTime : 2024-04-05 11:58:13
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\graph\_data_analysis_graph.py
@@ -77,5 +77,5 @@ def categorical_numerical_feature_vs_target_graph(df, categorical_numerical_feat
                     ax=ax, data=df, x=categorical_numerical_feature_list[num], palette=color_palette)
                 ax.set_xlabel(
                     categorical_numerical_feature_list[num], fontsize=14, fontweight='bold', fontfamily='serif', color="#000000")
-                ax.set_ylabel(target_feature, fontsize=14,
+                ax.set_ylabel('Count Number', fontsize=14,
                               fontweight='bold', fontfamily='serif', color="#000000")
