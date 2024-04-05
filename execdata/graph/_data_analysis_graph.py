@@ -2,7 +2,7 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-05 11:44:47
+LastEditTime : 2024-04-05 11:50:35
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\graph\_data_analysis_graph.py
@@ -61,7 +61,7 @@ def categorical_numerical_feature_vs_target_graph(df, categorical_numerical_feat
             num = 0
             num = i * figsize + j
             if num < len(categorical_numerical_feature_list):
-                print(i, j)
+                # print(i, j)
                 # print('number is', num)
                 # print('number is', len(categorical_numerical_feature_list))
                 ax = fig.add_subplot(gs[i, j])
@@ -69,7 +69,7 @@ def categorical_numerical_feature_vs_target_graph(df, categorical_numerical_feat
                 color_palette = ["#800000", "#8000ff",
                                  "#6aac90", "#5833ff", "#da8829"]
                 fig.patch.set_facecolor(background_color)
-                print(categorical_numerical_feature_list[num])
+                # print(categorical_numerical_feature_list[num])
                 ax.set_facecolor(background_color)
                 ax.grid(color='#000000', linestyle=':',
                         axis='y', zorder=0,  dashes=(1, 5))
