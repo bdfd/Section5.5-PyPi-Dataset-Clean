@@ -2,7 +2,7 @@
 Date         : 2023-10-12 14:56:26
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-04 17:53:32
+LastEditTime : 2024-04-05 10:51:09
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\eda\_data_mining.py
@@ -30,11 +30,11 @@ def numerical_features_list(df):
     print(numerical_features_list)
     return numerical_features_list
 
-def discrete_numerical_feature_list(df, numerical_features_list):
-    discrete_numerical_feature_list = [
+def categorical_numerical_feature_list(df, numerical_features_list):
+    categorical_numerical_feature_list = [
             feature for feature in numerical_features_list if len(df[feature].unique()) < 15]
-    print(discrete_numerical_feature_list)
-    return discrete_numerical_feature_list
+    print(categorical_numerical_feature_list)
+    return categorical_numerical_feature_list
 
 def continuous_numerical_feature_list(df, numerical_features_list):
     continuous_numerical_feature_list = [

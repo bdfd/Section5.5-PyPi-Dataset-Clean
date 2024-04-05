@@ -2,15 +2,16 @@
 Date         : 2023-11-02 12:47:29
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2023-11-30 15:50:40
-LastEditors  : BDFD
+LastEditTime : 2024-04-05 11:00:32
+LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\graph\_data_analysis_graph.py
 Copyright (c) 2023 by BDFD, All Rights Reserved. 
 '''
 from tabulate import tabulate
+import seaborn as sns
 import matplotlib.pyplot as plt
-
+import math
 
 def top_correlation(df, target_feature, top_feature_number=10, correlation_boundary=0.05):
     # Get Correlation of "Churn" with other variables:
@@ -47,3 +48,26 @@ def top_correlation(df, target_feature, top_feature_number=10, correlation_bound
     print(table)
 
     return top_feature_column_names
+
+def categorical_numerical_feature_vs_target_graph(df, categorical_numerical_feature_list, target_feature):
+    figsize = math.ceil(math.sqrt(len(categorical_numerical_feature_list)))
+    fig = plt.figure(figsize=(18,15))
+    gs = fig.add_gridspec(figsize,figsize)
+    gs.update(wspace=0.5, hspace=0.25)
+    for i in range(figsize):
+        for j in range(figsize):
+            num = 0
+            # print(i,j)
+            num = i * figsize + j
+            # print('number is',num)
+            ax = fig.add_subplot(gs[i,j])
+            background_color = "#ffe6e6"
+            color_palette = ["#800000","#8000ff","#6aac90","#5833ff","#da8829"]
+            fig.patch.set_facecolor(background_color)
+            # print(categorical_numerical_feature_list[num])
+            ax.set_facecolor(background_color)
+            # ax.text(0.5, 150, discrete_numerical_features[num], fontsize=14, fontweight='bold', fontfamily='serif', color="#000000") 
+            ax.grid(color='#000000', linestyle=':', axis='y', zorder=0,  dashes=(1,5))
+            sns.countplot(ax=ax,data=df,x=categorical_numerical_feature_list[num],palette=color_palette)
+            ax.set_xlabel(categorical_numerical_feature_list[num],fontsize=14,fontweight='bold', fontfamily='serif', color="#000000")
+            ax.set_ylabel(target_feature,fontsize=14,fontweight='bold', fontfamily='serif', color="#000000")

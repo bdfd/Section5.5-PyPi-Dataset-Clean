@@ -2,7 +2,7 @@
 Date         : 2023-11-02 17:34:28
 Author       : BDFD,bdfd2005@gmail.com
 Github       : https://github.com/bdfd
-LastEditTime : 2024-04-04 17:51:44
+LastEditTime : 2024-04-05 10:53:42
 LastEditors  : <BDFD>
 Description  : 
 FilePath     : \execdata\eda\__init__.py
@@ -10,7 +10,7 @@ Copyright (c) 2023 by BDFD, All Rights Reserved.
 '''
 from ._data_mining import high_miss_rate_column
 from ._data_mining import numerical_features_list
-from ._data_mining import discrete_numerical_feature_list 
+from ._data_mining import categorical_numerical_feature_list 
 from ._data_mining import continuous_numerical_feature_list
 from ._data_mining import categorical_features_list
 from ._data_mining import column_identify
